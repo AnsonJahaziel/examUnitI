@@ -1,0 +1,77 @@
+<div class="content-wrapper">
+
+    <div class="card my-4 ml-3 mr-3">
+        <div class="card-header">
+            <h5>User</h5>
+        </div>
+    
+        <form class="ml-3 mr-3 my-1" [formGroup]="userForm">
+    
+            <div class="form-group">
+                <label>Fullname</label>
+                <input [(ngModel)]="fullname" type="text" id="fullname" formControlName="fullname" class="form-control" placeholder="Enter Fullname">
+    
+                <div *ngIf="getControl.fullname.invalid && (getControl.fullname.dirty || getControl.fullname.touched)"
+                    class="alert alert-danger">
+    
+                    <div *ngIf="getControl.fullname.errors?.required">
+                        Name Cannot Be Empty
+                    </div>
+    
+                    <div *ngIf="getControl.fullname.errors?.minlength">
+                        Not Enough Characters
+                    </div>
+    
+                    <div *ngIf="getControl.fullname.errors?.maxlength">
+                        The Username Exceeds Maximun Number of Characters
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+            <div class="form-group">
+                <label>Email</label>
+                <input [(ngModel)]="email" type="text" id="email" formControlName="email" class="form-control" placeholder="Enter Email">
+    
+                <div *ngIf="getControl.email.invalid && (getControl.email.dirty || getControl.email.touched)"
+                    class="alert alert-danger">
+    
+                    <div *ngIf="getControl.email.errors?.required">
+                        Email Cannot Be Empty
+                    </div>
+    
+                    <div *ngIf="getControl.email.errors?.minlength">
+                        Not Enough Characters
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+            <div class="form-group">
+                <label>Password</label>
+                <input [(ngModel)]="password" type="password" id="password" formControlName="password" class="form-control" placeholder="Enter Password">
+    
+                <div *ngIf="getControl.password.invalid && (getControl.password.dirty || getControl.password.touched)"
+                    class="alert alert-danger">
+    
+                    <div *ngIf="getControl.password.errors?.required">
+                        Password Cannot Be Empty
+                    </div>
+    
+                    <div *ngIf="getControl.password.errors?.minlength">
+                        Not Enough Characters
+                    </div>
+
+                </div>
+    
+            </div>
+      
+            <button (click)="userFunction(fullname, email, password)" type="submit" class="btn btn-md btn-block btn-primary">Submit</button>
+    
+        </form>
+    </div>
+
+</div>
+

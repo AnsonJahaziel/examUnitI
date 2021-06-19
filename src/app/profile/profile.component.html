@@ -1,0 +1,96 @@
+<div class="content-wrapper">
+
+    <div class="card my-4 ml-3 mr-3">
+        <div class="card-header">
+            <h5>Profile</h5>
+        </div>
+    
+        <form class="ml-3 mr-3 my-1" [formGroup]="profileForm">
+    
+            <div class="form-group">
+                <label>Technical Skills</label>
+                <input [(ngModel)]="skill" type="text" id="skill" formControlName="skill" class="form-control" placeholder="Enter Skill">
+    
+                <div *ngIf="getControl.skill.invalid && (getControl.skill.dirty || getControl.skill.touched)"
+                    class="alert alert-danger">
+    
+                    <div *ngIf="getControl.skill.errors?.required">
+                        Skills Cannot Be Empty
+                    </div>
+    
+                    <div *ngIf="getControl.skill.errors?.minlength">
+                        Not Enough Characters
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+            <div class="form-group">
+                <label>English Level</label>
+                <input [(ngModel)]="level" type="text" id="level" formControlName="level" class="form-control" placeholder="Enter Level">
+    
+                <div *ngIf="getControl.level.invalid && (getControl.level.dirty || getControl.level.touched)"
+                    class="alert alert-danger">
+    
+                    <div *ngIf="getControl.level.errors?.required">
+                        Level Cannot Be Empty
+                    </div>
+    
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label>Years of Experience</label>
+                <input [(ngModel)]="experience" type="text" id="experience" formControlName="experience" class="form-control" placeholder="Enter Experience">
+    
+                <div *ngIf="getControl.experience.invalid && (getControl.experience.dirty || getControl.experience.touched)"
+                    class="alert alert-danger">
+    
+                    <div *ngIf="getControl.experience.errors?.required">
+                        Experience Cannot Be Empty
+                    </div>
+    
+                </div>
+    
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                <input [(ngModel)]="address" type="text" id="address" formControlName="address" class="form-control" placeholder="Enter Address">
+    
+                <div *ngIf="getControl.address.invalid && (getControl.address.dirty || getControl.address.touched)"
+                    class="alert alert-danger">
+    
+                    <div *ngIf="getControl.address.errors?.required">
+                        Address Cannot Be Empty
+                    </div>
+    
+                    <div *ngIf="getControl.address.errors?.minlength">
+                        Not Enough Characters
+                    </div>
+    
+                </div>
+    
+            </div>
+            <div class="form-group">
+                <label>Telephone</label>
+                <input [(ngModel)]="telephone" type="text" id="telephone" formControlName="telephone" class="form-control" placeholder="Enter Telephone">
+    
+                <div *ngIf="getControl.telephone.invalid && (getControl.telephone.dirty || getControl.telephone.touched)"
+                    class="alert alert-danger">
+    
+                    <div *ngIf="getControl.telephone.errors?.required">
+                        Telephone Cannot Be Empty
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+            <button (click)="profileFunction(skill, level, experience, address, telephone)" type="submit" class="btn btn-md btn-block btn-primary">Submit</button>
+    
+        </form>
+    </div>
+
+</div>
+
